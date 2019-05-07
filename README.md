@@ -1,8 +1,8 @@
 <h1>AIDA<i>histo</i></h1>
-Detailed instructions for the use of AIDAhisto can be downloaded here
-[<h2>MANUAL</h2>]
-(https://github.com/maswendt/AIDAhisto/blob/master/manual.pdf)
 Software to quantify cells in histological sections evaluated on different stainings (GFAP, Iba1, NeuN, Dapi)
+
+[<h2>MANUAL</h2>](https://github.com/maswendt/AIDAhisto/blob/master/manual.pdf)
+
 <h2><b>CONTACT</h2></b>
 Niklas Pallast (niklas.pallast@uk-koeln.de) and 
 Markus Aswendt (markus.aswendt@uk-koeln.de)
