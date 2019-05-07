@@ -1,3 +1,12 @@
+""""
+Created on 17.01.2019
+
+@authors: Niklas Pallast
+Department of Neurology, University Hospital Cologne
+
+AIDAhisto: Atlas-based imaging data analysis tool for mouse brain histology
+"""
+
 import numpy as np
 
 def getfilters(size,dark_peaks):

@@ -3,6 +3,7 @@ Created on 17.01.2019
 
 @authors: Niklas Pallast, Michael Diedenhofen
 Max Planck Institute for Metabolism Research, Cologne
+Department of Neurology, University Hospital Cologne
 
 AIDAhisto: Atlas-based imaging data analysis tool for mouse brain histology
 """
@@ -18,7 +19,6 @@ import Sfilter
 import barfilters
 
 import numpy as np
-import matplotlib.cm as cm
 import matplotlib.pyplot as plt
 
 from scipy import signal

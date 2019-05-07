@@ -1,8 +1,11 @@
-'''
+""""
 Created on 17.01.2019
 
-@author: michaeld
-'''
+@authors: Niklas Pallast
+Department of Neurology, University Hospital Cologne
+
+AIDAhisto: Atlas-based imaging data analysis tool for mouse brain histology
+"""
 
 import os
 
