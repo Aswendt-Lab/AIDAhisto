@@ -1,0 +1,61 @@
+
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{here}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true}
+\hypersetup{urlcolor=red}
+\title{Manual: Atlas-based imaging data analysis tool at histological resolutions \\AIDAhisto}
+\date{2019}
+\author{Niklas Pallast\\ Department of Neurology \\ University Hospital Cologne}
+\begin{document}
+\maketitle
+\section{Introduction}
+AIDAhisto provides accurate and fast results for cell nuclei as well as immunohistochemical stainings of neurons, astrocytes and immune cells in the mouse brain with respect to the associated regions of the Allen Brain Reference Atlas (ARA). The transformation between the atlas as a source and the brain slice as a target image was conducted by a landmark based registration.   
+\section{Installation}
+AIDAhisto is provided as a freely available cell-counting tool written in Python 3.6 as well as Matlab (Matlab Version R2018a, The MathWorks Inc., Natick, USA)
+\subsection{Installation with Matlab}
+\begin{enumerate}
+\item A current version of Matlab is required. 
+\item Download the folders {\tt /Matlab} and {\tt /testImages} by using this \href{https://github.com/maswendt/AIDAhisto}{link} \\ \textbf{{\tt /Matlab} and {\tt /testImages} should be located in the same directory}
+\item set  {\tt /Matlab} as your "Current Folder" in Matlab and type {\tt run\_example.mat} in the "Command Window"
+\end{enumerate}
+\subsection{Installation with Python}
+\begin{enumerate}
+	\item  Download the folders {\tt /Python} and {\tt /testImages} by using this \href{https://github.com/maswendt/AIDAhisto}{link} \\ \textbf{{\tt /Matlab} and {\tt /testImages} should be located in the same directory}
+	\item Download \& Install Python 3.6 or higher using \href{https://www.anaconda.com/distribution/}{Anaconda} and enter the command to install necessary packages\\ {\tt pip install numpy=1.14.3 argparse=1.4.0 scipy=1.2.1 matplotlib=3.0.3}	
+	\item set  {\tt /Python} as your current folder in the command window of your System and open the GUI by typing {\tt python AIDAhisto\_gui.py}
+\end{enumerate}
+	
+
+	
+	
+\section{Usage of AIDAhisto}
+The input fields can be as {\tt .jpeg, .tiff} or {\tt .png}. \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.imread.html}{Here} you can find detailed information about the image input. The command line examples are given with in file {\tt /Matlab/run\_example.mat} for usage with Matlab in the file {\tt /Python/run\_example.mat} for usage with Python.  and can be identically applied to other data. In both cases a detailed help is documented in the program code. The test dataset is freely available and  can be downloaded from the file \url{https://doi.org/10.12751/g-node.70e11f}. If the user does not want to work with the command line, a Generic User Interface (GUI) can be used. The GUI starts with the command {\tt python AIDAhisto\_gui.py} which opens the window shown in Figure \ref{fig:gui} 
+
+\begin{figure}[H]
+\centering
+  \includegraphics[scale=0.90]{./GUI_num.png}
+  \caption{Description of the user interface to process with all provided input parameters.}
+  \label{fig:gui}
+\end{figure}
+The user only can choose an image file and adapt the cell width (5) to run AIDAhisto, but we also provide some paramateres to optimize the output and to meet all individual requirements of manifold investiagtions. Therefore, the following is a detailed explanation of the numbering in Figure \ref{fig:gui}:
+\begin{enumerate}
+	\item Path the the file of the input image with the postfix {\tt .jepg, png, tiff}
+	\item Press button to open file dialog and select a image file
+	\item Choose the color channel that should be evaluated. If only one channel is present, the first channel will always be examined.
+	\item \begin{itemize}
+		\item For very large images, the process can be accelerated by choosing \textit{Fast detection}
+		\item  If the cells are dark and the background is bright, the image should be inverted by choosing \textit{Invert image}. 
+		\item If the cells are not round and have a different shape choose \textit{Non-circular cells}.
+	\end{itemize} 	
+	\item Choose the cell size in pixels.
+	\item The minimum cell distance is pre-setted but can also be adapted.
+	\item The automatically calculated threshold value can be adjusted and weighted here.
+	\item If regions are superimposed with the image, the region image can be selected here.
+	\item You can enter the image of a previous investigation here and take it as a reference.
+	\item If certain names should be  noted in the output file instead of the pixel value, the name of the respective pixel value can be entered here as a text file.
+\end{enumerate}
+
+\end{document}
