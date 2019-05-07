@@ -207,7 +207,7 @@ class ADAIhisto_top:
                 , relwidth=0.27)
         self.Labelframe5.configure(relief='groove')
         self.Labelframe5.configure(foreground="black")
-        self.Labelframe5.configure(text='''Cell distance [pixels]''')
+        self.Labelframe5.configure(text='''Cell distance [pixel]''')
         self.Labelframe5.configure(background="#d9d9d9")
         self.Labelframe5.configure(width=160)
 
