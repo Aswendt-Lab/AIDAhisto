@@ -1,8 +1,8 @@
 [1.2]: http://i.imgur.com/wWzX9uB.png
 [1]: http://www.twitter.com/AswendtMarkus
 <!--social icon from https://github.com/carlsednaoui/gitsocial -->
-![Logo](https://github.com/maswendt/AIDAhisto/blob/master/logo.png)
-<h1>AIDA<i>histo</i></h1>
+![Logo](https://github.com/maswendt/AIDAhisto/blob/master/logo.png)<h1>AIDA<i>histo</i></h1>
+
 Software to quantify cells in histological sections evaluated on different stainings (GFAP, Iba1, MAP2, DAPI)
 
 [MANUAL](https://github.com/maswendt/AIDAhisto/blob/master/manual.pdf)
