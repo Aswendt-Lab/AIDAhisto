@@ -109,10 +109,11 @@ def apply_cmd():
 
 
     print(command)
-    os.system(command)
+    #os.system(command)
     sys.stdout.flush()
 def bar_cmd():
-    print('-b')
+    if bar.get():
+        fast.set('')
     sys.stdout.flush()
 
 def blue_cmd():
@@ -120,14 +121,14 @@ def blue_cmd():
     red_v.set('')
 
 def dark_cmd():
-    print('-d')
     sys.stdout.flush()
 
 def dist_cmd(*args):
     cell_dist_entry.set(round(min_dist.get(),2))
 
 def fast_cmd():
-    print('-f ')
+    if fast.get():
+        bar.set('')
     sys.stdout.flush()
 
 def green_cmd():
@@ -155,11 +156,11 @@ def roi_cmd():
     roi_inV.set(filename)
 
 def threshold_cmd(*args):
-    threshold_entry.set(round(threshold.get(),2))
+    threshold_entry.set(round(threshold.get(),0))
 
 def width_cmd(*args):
-    cell_width_entry.set(round(cell_widthV.get(),2))
-    min_dist.set(round(cell_widthV.get()/2,2))
+    cell_width_entry.set(round(cell_widthV.get(),0))
+    min_dist.set(round(cell_widthV.get()/2,0))
     dist_cmd()
 
 def init(top, gui, *args, **kwargs):
