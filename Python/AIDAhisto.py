@@ -191,7 +191,7 @@ def get_peaks(data, width, min_dist, dark_peaks,barFilterType,fastDetect,thresW)
 
     print("Thresholding")
     threshold = thresW * get_threshold(data)
-
+    print("Calculated Threshold "+str(threshold))
     print("Finding maxima")
     peaks = get_local_max(image, min_dist, threshold)
     print('Elapsed time in sec: %.2f ' % (time.time() - t))

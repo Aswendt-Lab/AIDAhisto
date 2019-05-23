@@ -111,7 +111,7 @@ def apply_cmd():
 
 
     print(command)
-    #os.system(command)
+    os.system(command)
     sys.stdout.flush()
 def bar_cmd():
     if bar.get():

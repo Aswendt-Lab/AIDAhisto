@@ -319,7 +319,7 @@ class ADAIhisto_top:
         self.Labelframe6.configure(background="#d9d9d9")
         self.Labelframe6.configure(width=160)
 
-        self.threshold_scale = ttk.Scale(self.Labelframe6, from_=5, to=50)
+        self.threshold_scale = ttk.Scale(self.Labelframe6, from_=1, to=50)
         self.threshold_scale.place(relx=0.063, rely=0.462, relwidth=0.563
                 , relheight=0.0, height=24, bordermode='ignore')
         self.threshold_scale.configure(command=AIDAhisto_gui_support.threshold_cmd)
