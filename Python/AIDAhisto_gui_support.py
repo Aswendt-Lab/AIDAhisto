@@ -28,11 +28,11 @@ def set_Tk_var():
     global inputFilename
     inputFilename = tk.StringVar()
     global fast
-    fast = tk.StringVar()
+    fast = tk.IntVar()
     global dark
-    dark = tk.StringVar()
+    dark = tk.IntVar()
     global bar
-    bar = tk.StringVar()
+    bar = tk.IntVar()
     global red_v
     red_v = tk.StringVar()
     global green_v
@@ -87,11 +87,11 @@ def apply_cmd():
         listV = ' -l '+listofRoiNames.get()+' '
 
     options=''
-    if fast.get():
+    if fast.get()==1:
         options = options+' -f '
-    if dark.get():
+    if dark.get()==1:
         options = options + ' -d '
-    if bar.get():
+    if bar.get()==1:
         options = options + ' -b '
 
     colorStr=' -c '
@@ -105,6 +105,8 @@ def apply_cmd():
         print('Choose a color channel...')
         return
 
+    print(fast.get())
+    print(options)
     command = 'python AIDAhisto.py '+fn+colorStr+'-w '+cell_width_entry.get()+' -m '+cell_dist_entry.get()+options+' -t '+threshold_entry.get()+refV+roiV+listV
 
 
@@ -113,7 +115,7 @@ def apply_cmd():
     sys.stdout.flush()
 def bar_cmd():
     if bar.get():
-        fast.set('')
+        fast.set(0)
     sys.stdout.flush()
 
 def blue_cmd():
@@ -128,7 +130,8 @@ def dist_cmd(*args):
 
 def fast_cmd():
     if fast.get():
-        bar.set('')
+        bar.set(0)
+
     sys.stdout.flush()
 
 def green_cmd():
