@@ -19,6 +19,7 @@ function [fileStr,peaks,peaks_coord]=AIDAhisto(inputPath, width, varargin)
 %   THRES_W    - weighting factor for isodata threshold - default 10
 %   RAD        - distance between cell nuclei and current cells - default 1.5   
 %   REF_PATH   - path to reference img with cell nuclei   
+%   ROI_NAMES  - path to text file with roi names with format %i\t%s\n   
 %
 % Outputs:
 %   peaks       - 2D binary images with peaks
@@ -31,7 +32,7 @@ function [fileStr,peaks,peaks_coord]=AIDAhisto(inputPath, width, varargin)
 % University Hospital Cologne
 % Kerpener Str. 62
 % 50937 Cologne, Germany
-% Mar 2019; Last revision: 12-May-2019
+% Mar 2019; Last revision: 17-June-2019
 %------------- BEGIN CODE --------------
 %% read parameters
 tic;
@@ -112,7 +113,7 @@ end
 x_s = size(input_Image,1);
 y_s = size(input_Image,2);
 if (x_s*y_s)>100000000
-    input_Image =imresize(input_Image,0.2);
+    input_Image =imresize(input_Image,0.2,'nearest');
 end
 
 %% apply AIDAhist
@@ -170,6 +171,7 @@ if save_data==1
     
     if (x_s*y_s)>100000000
         peaks =imresize(peaks,[x_s,y_s]);
+        peaks = imerode(peaks,se);
         input_Image = imresize(input_Image,[x_s,y_s]);
     end
     
