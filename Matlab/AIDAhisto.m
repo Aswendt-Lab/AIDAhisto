@@ -42,6 +42,7 @@ filterType = 0;
 thresw = 10;
 refPath = '';
 roiPath = '';
+roiNames = '';
 i = 1 ;
 rad = 1.5;
 while length(varargin)>i
@@ -70,6 +71,8 @@ while length(varargin)>i
             refPath = val;
         case 'RAD'
             rad = val;
+        case 'ROI_NAMES'
+            roiNames = val;
         otherwise
             error(['Unknown parameter name ' parameter])
     end
@@ -116,7 +119,7 @@ end
 disp("Finding Kernel");
 if filterType == 1
     
-    kernel = makeRFSfilters(width);
+    kernel = makeBarFilters(width);
     
     imageVec = zeros([size(input_Image'),size(kernel,3)]);
     disp("Convolution")
@@ -170,7 +173,7 @@ if save_data==1
         input_Image = imresize(input_Image,[x_s,y_s]);
     end
     
-    imwrite(peaks,[filenameStr '.png'])
+    imwrite(peaks,[fileStr '.png'])
     % save txt
     fileID = fopen([fileStr '.txt'],'w');
     fprintf(fileID, 'AIDAhisto - advanced Image-based Tool for Counting Nuclei \nNumber of identified Cells %i \n\n',length(peaks_coord));
@@ -235,10 +238,22 @@ if exist(roiPath,'file')
             cells(i)=sum(peaks(mask==roi));
         end
         % save txt
-        fileID = fopen([fileStr 'ROIs.txt'],'w');
-        fprintf(fileID, 'AIDAhisto: Atlas-based imaging data analysis tool for mouse brain histology \nNumber of identified Cells in %i given ROIs \n\n',length(roiNo));
-        for i=1:length(cells)
-            fprintf(fileID,'%i %i\n',roiNo(i),cells(i));
+        if exist(roiPath,'file')
+            fileID = fopen([fileStr 'ROIs.txt'],'w');
+            fileROIID = fopen(roiPath,'r');
+            textROI =textscan(fileROIID,'%s%s%[^\n\r]','Delimiter', '\t', 'TextType', 'string');
+            textROINum = textROI{1};
+            textROIAcro = textROI{2};
+            fprintf(fileID, 'AIDAhisto: Atlas-based imaging data analysis tool for mouse brain histology \nNumber of identified Cells in %i given ROIs \n\n',length(roiNo));
+            for i=1:length(cells)
+                fprintf(fileID,'%i %i\n',roiNo(i),cells(i));
+            end
+        else
+            fileID = fopen([fileStr 'ROIs.txt'],'w');
+            fprintf(fileID, 'AIDAhisto: Atlas-based imaging data analysis tool for mouse brain histology \nNumber of identified Cells in %i given ROIs \n\n',length(roiNo));
+            for i=1:length(cells)
+                fprintf(fileID,'%i %i\n',roiNo(i),cells(i));
+            end
         end
         
         fclose(fileID);
