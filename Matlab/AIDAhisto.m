@@ -75,6 +75,7 @@ while length(varargin)>i
     end
 end
 
+
 if exist(inputPath,'file')
     if save_data == 1
         [p,f]=fileparts(inputPath);
@@ -102,6 +103,13 @@ end
 
 if sum(input_Image(:))==0
     error(['There is no image information in channel ' num2str(ch)])
+end
+
+%% poof Image size - the calculation is proceeded on a downscale image
+x_s = size(input_Image,1);
+y_s = size(input_Image,2);
+if (x_s*y_s)>100000000
+    input_Image =imresize(input_Image,0.2);
 end
 
 %% apply AIDAhist
@@ -154,13 +162,18 @@ disp("Save data");
 if save_data==1
     figure;
     % save and plot image
-    %se = strel('disk',2);
-    imshow(imoverlay(input_Image,peaks,'r'))
-    imwrite(peaks,[fileStr '.png'])
+    se = strel('disk',2);
+    imshow(imoverlay(uint8(255*mat2gray(input_Image)),imdilate(peaks,se),'r'),[])
     
+    if (x_s*y_s)>100000000
+        peaks =imresize(peaks,[x_s,y_s]);
+        input_Image = imresize(input_Image,[x_s,y_s]);
+    end
+    
+    imwrite(peaks,[filenameStr '.png'])
     % save txt
     fileID = fopen([fileStr '.txt'],'w');
-    fprintf(fileID, 'aITCN - advanced Image-based Tool for Counting Nuclei \nNumber of identified Cells %i \n\n',length(peaks_coord));
+    fprintf(fileID, 'AIDAhisto - advanced Image-based Tool for Counting Nuclei \nNumber of identified Cells %i \n\n',length(peaks_coord));
     for i=1:length(peaks_coord)
         fprintf(fileID,'%i %i\n',peaks_coord(i,2),peaks_coord(i,1));
     end

@@ -219,11 +219,11 @@ def find_Fastkernel(width):
     h = h - kOffset
     return h
 
-def get_refPeaks(peaks,refPath):
+def get_refPeaks(peaks,refPath,radius):
     img_refPeaks = misc.imread(refPath,mode='L')
     coord_refPeaks = np.array(np.where(img_refPeaks >= 1))
     coord_peaks = np.array(np.where(peaks>=1))
-    idxValid = nearestneighbour(coord_peaks,coord_refPeaks,8)
+    idxValid = nearestneighbour(coord_peaks,coord_refPeaks,radius)
 
     #coord_refPeaks=np.squeeze(np.array([coord_peaks[0][idxValid],coord_peaks[1][idxValid]]))
     img_validPeaks = np.zeros([np.size(img_refPeaks,0),np.size(img_refPeaks,1)],dtype='int8')
@@ -356,7 +356,8 @@ def main():
     parser.add_argument('-t', '--thres_weighting',default =1.0, help='weighting factor for isodata threshold - default 10',type=float)
     parser.add_argument('-a', '--roi_in', help='input roi image path (NIfTI,TIFF)')
     parser.add_argument('-r', '--ref_in', help='path to reference img with cell nuclei', default="")
-    parser.add_argument('-l', '--listRoiNames',
+    parser.add_argument('-n','--neighborRad', help='radius to define neihbors in reference image', default=25, type=int)
+    parser.add_argument('-', '--listRoiNames',
                         help='txt file to translate ROI Number to acronyms', type=str)
     args = parser.parse_args()
 
@@ -386,7 +387,7 @@ def main():
 
     # if reference peaks exists
     if os.path.isfile(args.ref_in):
-        ref_peaks=get_refPeaks(peaks,args.ref_in)
+        ref_peaks=get_refPeaks(peaks,args.ref_in,args.neighborRad)
         print('%i valid cells were identified from %i cells' % (len(peaks[ref_peaks==True]),len(peaks[peaks==True])))
         peaks=ref_peaks
 
