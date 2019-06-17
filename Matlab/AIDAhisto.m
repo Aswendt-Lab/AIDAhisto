@@ -31,7 +31,7 @@ function [fileStr,peaks,peaks_coord]=AIDAhisto(inputPath, width, varargin)
 % University Hospital Cologne
 % Kerpener Str. 62
 % 50937 Cologne, Germany
-% Mar 2019; Last revision: 12-May-2004
+% Mar 2019; Last revision: 12-May-2019
 %------------- BEGIN CODE --------------
 %% read parameters
 tic;
@@ -231,6 +231,7 @@ if exist(roiPath,'file')
         disp('Dimension of input image and mask do not agree')
     else
         roiNo = unique(mask);
+        roiNo(roiNo==0)=[];
         fprintf('Processing %i ROIs\n',length(roiNo))
         cells = zeros(size(roiNo));
         for i = 1:length(roiNo)
@@ -238,21 +239,21 @@ if exist(roiPath,'file')
             cells(i)=sum(peaks(mask==roi));
         end
         % save txt
-        if exist(roiPath,'file')
+        if exist(roiNames,'file')
             fileID = fopen([fileStr 'ROIs.txt'],'w');
-            fileROIID = fopen(roiPath,'r');
-            textROI =textscan(fileROIID,'%s%s%[^\n\r]','Delimiter', '\t', 'TextType', 'string');
-            textROINum = textROI{1};
-            textROIAcro = textROI{2};
+
+            roiNames = readROInames(roiNames);
+            roirefNum = double(roiNames(:,1));
             fprintf(fileID, 'AIDAhisto: Atlas-based imaging data analysis tool for mouse brain histology \nNumber of identified Cells in %i given ROIs \n\n',length(roiNo));
             for i=1:length(cells)
-                fprintf(fileID,'%i %i\n',roiNo(i),cells(i));
+                tempName = roiNames(ismember(roirefNum,roiNo(i)),2);
+                fprintf(fileID,'%i\t%s\t%i\n',roiNo(i),tempName,cells(i));
             end
         else
             fileID = fopen([fileStr 'ROIs.txt'],'w');
             fprintf(fileID, 'AIDAhisto: Atlas-based imaging data analysis tool for mouse brain histology \nNumber of identified Cells in %i given ROIs \n\n',length(roiNo));
             for i=1:length(cells)
-                fprintf(fileID,'%i %i\n',roiNo(i),cells(i));
+                fprintf(fileID,'%i\t%i\n',roiNo(i),cells(i));
             end
         end
         
