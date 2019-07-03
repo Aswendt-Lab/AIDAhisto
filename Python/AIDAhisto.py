@@ -17,7 +17,7 @@ import time
 
 import Sfilter
 import barfilters
-
+import readline
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -400,7 +400,10 @@ def main():
 
     # save output image and txtFile
     save_data(image_out, peaks)
-
+    print(sys.argv[1:])
+    file = open(os.path.join(os.path.dirname(args.image_in), os.path.basename(args.image_in)+"_process.log"), 'w')
+    file.write(str(sys.argv[1:]))
+    file.close()
     # evaluate cell number in given regions
     get_roiEval(args.roi_in, peaks, image_out,txt_file)
 
