@@ -357,7 +357,7 @@ def main():
     parser.add_argument('-a', '--roi_in', help='input roi image path (NIfTI,TIFF)')
     parser.add_argument('-r', '--ref_in', help='path to reference img with cell nuclei', default="")
     parser.add_argument('-n','--neighborRad', help='radius to define neihbors in reference image', default=25, type=int)
-    parser.add_argument('-', '--listRoiNames',
+    parser.add_argument('-l', '--listRoiNames',
                         help='txt file to translate ROI Number to acronyms', type=str)
     args = parser.parse_args()
 

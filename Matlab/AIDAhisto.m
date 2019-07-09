@@ -211,7 +211,7 @@ if exist(refPath,'file')
         
         % save and plot image with verified cells 
         figure;
-        imshow(imoverlay(input_Image,peaks_verified,'g'))
+        imshow(imoverlay(input_Image,imdilate(peaks_verified,se),'r'))
         imwrite(peaks_verified,[fileStr '_v.png'])
         
         % save txt
