@@ -1,4 +1,4 @@
-Number of detected cells: 31053
+AIDAhisto - Number of detected cells: 31053
 cell postions (xy):
 
 68	2441

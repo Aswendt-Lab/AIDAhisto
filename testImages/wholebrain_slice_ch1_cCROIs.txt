@@ -1,4 +1,5 @@
-Number of detected cells in 94 given ROIs
+AIDAhisto: Atlas-based imaging data analysis tool for mouse brain histology 
+Number of identified Cells in 94 given ROIs 
 
 2	SSp-m6b	74
 19	IG	10

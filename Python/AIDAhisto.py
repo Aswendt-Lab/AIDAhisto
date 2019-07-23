@@ -36,7 +36,7 @@ def save_data(image_out, data):
     print("Output:", image_out)
     itemindex = np.where(data == 1)
     fileID = open(os.path.splitext(image_out)[0] +'.txt', 'w')
-    fileID.write("Number of detected cells: %i\ncell postions (xy):\n\n" % np.size(itemindex,1))
+    fileID.write("AIDAhisto - Number of detected cells: %i\ncell postions (xy):\n\n" % np.size(itemindex,1))
     for i in range(np.size(itemindex,1)):
         fileID.write("%i\t%i\n" % (itemindex[0][i]+1,itemindex[1][i]+1))
 
@@ -320,7 +320,7 @@ def get_roiEval(roiPath,peaks,image_out,txt_file):
             print("Output:", os.path.splitext(image_out)[0] + 'Map.tif')
             # misc.toimage(cellMap, cmin=0.0, cmax=1).save(os.path.splitext(image_out)[0] + 'Map.jpg')
             fileID = open(os.path.splitext(image_out)[0] + 'ROIs.txt', 'w')
-            fileID.write("Number of detected cells in %i given ROIs\n\n" % np.size(roiNo))
+            fileID.write("AIDAhisto: Atlas-based imaging data analysis tool for mouse brain histology \nNumber of identified Cells in %i given ROIs \n\n" % np.size(roiNo))
 
             if indices is None:
                 for i in range(np.size(cells)):

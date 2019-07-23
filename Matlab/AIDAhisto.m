@@ -178,7 +178,7 @@ if save_data==1
     imwrite(peaks,[fileStr '.png'])
     % save txt
     fileID = fopen([fileStr '.txt'],'w');
-    fprintf(fileID, 'AIDAhisto - advanced Image-based Tool for Counting Nuclei \nNumber of identified Cells %i \n\n',length(peaks_coord));
+    fprintf(fileID, 'AIDAhisto - Number of detected cells: %i\ncell postions (xy):\n\n',length(peaks_coord));
     for i=1:length(peaks_coord)
         fprintf(fileID,'%i %i\n',peaks_coord(i,2),peaks_coord(i,1));
     end
