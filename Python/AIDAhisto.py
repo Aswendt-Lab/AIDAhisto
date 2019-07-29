@@ -17,13 +17,15 @@ import time
 
 import Sfilter
 import barfilters
-import readline
 import numpy as np
 import matplotlib.pyplot as plt
+import imageio
+
 
 from scipy import signal
 from scipy.ndimage import filters
-from scipy import misc
+import warnings
+warnings.filterwarnings("ignore")
 
 def save_data(image_out, data):
     # save data (NIfTI)
@@ -32,7 +34,7 @@ def save_data(image_out, data):
     #header.set_xyzt_units(xyz=None, t=None)
     #image.to_filename(image_out)
 
-    misc.imsave(image_out,data)
+    imageio.imwrite(image_out,data)
     print("Output:", image_out)
     itemindex = np.where(data == 1)
     fileID = open(os.path.splitext(image_out)[0] +'.txt', 'w')
@@ -119,7 +121,7 @@ def get_threshold(img):
     #    IEEE Trans. System, Man and Cybernetics, SMC-8 (1978) 630-632.
     #   Author: Thuong HD - ASELAB - Hanoi University of Science and Technology
 
-    grayImage=img.flatten(1)
+    grayImage=img.flatten(order='C')
     # % The itial threshol is equal the mean of grayscale image
     initialTheta = np.mean(grayImage)
 
@@ -131,11 +133,11 @@ def get_threshold(img):
 
     # Gray levels are greater than or equal to the threshold
     foregroundLevel = grayImage[grayImage >= initialTheta]
-    meanForeground = np.mean(foregroundLevel.flatten(1))
+    meanForeground = np.mean(foregroundLevel.flatten(order='C'))
 
     # Gray levels are less than or equal to the threshold
     backgroundLevel = grayImage[grayImage < initialTheta]
-    meanBackground = np.mean(backgroundLevel.flatten(1))
+    meanBackground = np.mean(backgroundLevel.flatten(order='C'))
 
     i = 1
     threshold[i] = np.round((meanForeground + meanBackground) / 2)
@@ -144,11 +146,11 @@ def get_threshold(img):
     while np.abs(threshold[i] - threshold[i - 1]) >= 1:
         # Gray levels are greater than or equal to the threshold
         foregroundLevel = grayImage[grayImage >= threshold[i]]
-        meanForeground = np.mean(foregroundLevel.flatten(1))
+        meanForeground = np.mean(foregroundLevel.flatten(order='C'))
 
         # Gray levels are less than or equal to the threshold
         backgroundLevel = grayImage[grayImage < threshold[i]]
-        meanBackground = np.mean(backgroundLevel.flatten(1))
+        meanBackground = np.mean(backgroundLevel.flatten(order='C'))
 
         i = i + 1
         # Setup new threshold
@@ -220,7 +222,7 @@ def find_Fastkernel(width):
     return h
 
 def get_refPeaks(peaks,refPath,radius):
-    img_refPeaks = misc.imread(refPath,mode='L')
+    img_refPeaks = imageio.imread(refPath)
     coord_refPeaks = np.array(np.where(img_refPeaks >= 1))
     coord_peaks = np.array(np.where(peaks>=1))
     idxValid = nearestneighbour(coord_peaks,coord_refPeaks,radius)
@@ -248,6 +250,7 @@ def minn(x,n):
 
             xsn = [xsn[1:j], x[i-1], xsn[(j): (n - 1)]]
             I = [I[1:j], i-1, I[(j+1): (n - 1)]]
+            
             xsn = np.array([e for e in xsn if e])
             I = np.array([e for e in I if e])
 
@@ -284,7 +287,7 @@ def nearestneighbour(X,P,r):
 
 def get_roiEval(roiPath,peaks,image_out,txt_file):
     if roiPath is not None and os.path.isfile(roiPath):
-        mask = misc.imread(roiPath)
+        mask = imageio.imread(roiPath)
         if np.size(mask.shape)>2:
             mask = np.squeeze(mask[:,:,0])
         if np.size(mask) != np.size(peaks):
@@ -316,7 +319,7 @@ def get_roiEval(roiPath,peaks,image_out,txt_file):
             # maxCellNo=np.max(cells)
             # colormap = cm.ScalarMappable(cmap="hot")
             # im = colormap.to_rgba(cellMap)
-            misc.imsave(os.path.splitext(image_out)[0] + 'Map.tif', cellMap)
+            imageio.imwrite(os.path.splitext(image_out)[0] + 'Map.tif', cellMap)
             print("Output:", os.path.splitext(image_out)[0] + 'Map.tif')
             # misc.toimage(cellMap, cmin=0.0, cmax=1).save(os.path.splitext(image_out)[0] + 'Map.jpg')
             fileID = open(os.path.splitext(image_out)[0] + 'ROIs.txt', 'w')
@@ -366,7 +369,7 @@ def main():
     channel_color = ["Red","Green","Blue"]
     # read image data
     if os.path.isfile(args.image_in):
-        data = misc.imread(args.image_in)
+        data = imageio.imread(args.image_in)
         if np.size(data.shape)>2:
             print('CHANNEL: ' +channel_color[color_ch])
             if color_ch>2:
