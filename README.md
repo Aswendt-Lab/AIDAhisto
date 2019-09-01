@@ -20,6 +20,6 @@ GNU General Public License v3.0
 <summary>REFERENCES</summary></b>
 
 + AIDA<i>histo [Pallast, N., et al. "Atlas-based imaging data analysis tool for quantitative mouse brain histology (AIDAhisto)" Journal of Neuroscience Methods, 2019](https://www.sciencedirect.com/science/article/pii/S0165027019302511?via%3Dihub)
-+ AIDA<i>mri [Pallast, N., et al. "Processing pipeline for Atlas-based Imaging Data Analysis (AIDA) of structural and functional mouse brain MRI" Frontiers in Neuroinformatics, 2019]
++ AIDA<i>mri [Pallast, N., et al. "Processing pipeline for Atlas-based Imaging Data Analysis (AIDA) of structural and functional mouse brain MRI" Frontiers in Neuroinformatics, 2019](https://www.frontiersin.org/articles/10.3389/fninf.2019.00042/full)
 + Allen Brain Reference Atlas [Oh, Seung Wook, et al. "A mesoscale connectome of the mouse brain." Nature, 2014](https://www.nature.com/articles/nature13186)
 + Incremental cell search [Meruvia-Pastor, Oscar E., et al. "Estimating cell count and distribution in labeled histological samples using incremental cell search" Journal of Biomedical Imaging, 2011](https://www.hindawi.com/journals/ijbi/2011/874702/)
