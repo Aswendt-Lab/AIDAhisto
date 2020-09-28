@@ -1,1 +1,0 @@
-['../testImages/wholebrain_slice.tif', '-f', '-w', '9', '-d', '-c', '0', '-a', '../testImages/wholebrain_atlas.tif', '-l', '../ARA/acronyms_ARA.txt']
