@@ -5,8 +5,14 @@
 <img align="left" src="https://github.com/maswendt/AIDAhisto/blob/master/logo.png"><h1>AIDA<i>histo</i></h1>
 
 Software to quantify cells in histological sections evaluated on different stainings (GFAP, Iba1, MAP2, DAPI). You may additionally download the folder <i>testImages</i> to test the scripts and functions with example images.
-
-[MANUAL](https://github.com/maswendt/AIDAhisto/blob/master/manual.pdf)
+<br/>
+<br/>
+[Manual v1.1](https://github.com/maswendt/AIDAhisto/blob/master/manual.pdf)
+<br/>
+<br/>
+[Information about Version 1.1](https://github.com/maswendt/AIDAhisto/releases/tag/v1.1)
+<br/>
+[Information about Version 1.0](https://github.com/maswendt/AIDAhisto/releases/tag/v1.0)
 
 [<h3><b>CONTACT</h3></b>](https://neurologie.uk-koeln.de/forschung/ag-neuroimaging-und-neuroengineering/)
 Niklas Pallast (niklas.pallast@uk-koeln.de) and 
