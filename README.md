@@ -15,7 +15,7 @@ Software to quantify cells in histological sections evaluated on different stain
 <br/>
 [Information about Version 1.0](https://github.com/maswendt/AIDAhisto/releases/tag/v1.0)
 
-[<h3><b>CONTACT</h3></b>](https://neurologie.uk-koeln.de/forschung/ag-neuroimaging-und-neuroengineering/)
+[<h3><b>CONTACT</h3></b>](https://neurologie.uk-koeln.de/forschung/ag-neuroimaging-neuroengineering/)
 Niklas Pallast (niklas.pallast@uk-koeln.de) and 
 Markus Aswendt (markus.aswendt@uk-koeln.de)[![alt text][1.2]][1]
 
