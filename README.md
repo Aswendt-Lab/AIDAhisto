@@ -7,6 +7,7 @@
 Software to quantify cells in histological sections evaluated on different stainings (GFAP, Iba1, MAP2, DAPI). You may additionally download the folder <i>testImages</i> to test the scripts and functions with example images.
 <br/>
 <br/>
+<br/>
 [Manual v1.1](https://github.com/maswendt/AIDAhisto/blob/master/manual.pdf)
 <br/>
 <br/>
