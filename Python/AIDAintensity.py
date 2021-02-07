@@ -1,11 +1,12 @@
 """"
 Created on 28.10.2019
+Updated on 28.01.2021
 
-@authors: Niklas Pallast, Michael Diedenhofen
+@authors: Niklas Pallast, Michael Diedenhofen, Leon Scharwächter
 Max Planck Institute for Metabolism Research, Cologne
 Department of Neurology, University Hospital Cologne
 
-AIDAhisto: Atlas-based imaging data analysis tool for mouse brain intentsity
+AIDAhisto: Atlas-based imaging data analysis tool for mouse brain intensity
 """
 
 from __future__ import print_function
@@ -43,20 +44,25 @@ def get_roiEval(roiPath, peaks, image_out, txt_file):
             roiNo = np.unique(mask)
             roiNo = np.delete(roiNo, 0)
             cells = np.zeros(np.size(roiNo))
+            cells_norm = np.zeros(np.size(roiNo))
             cellMap = np.zeros_like(mask, dtype=float)
             for i in range(np.size(roiNo)):
-                cells[i] = np.sum(peaks[mask == roiNo[i]])*1e-5
-
-
+#                cells[i] = np.sum(peaks[mask == roiNo[i]])*1e-5
+                cells[i] = np.sum(peaks[mask == roiNo[i]])
+                cells_norm[i] = round(cells[i]/np.size(peaks[mask == roiNo[i]]),2)
             # misc.toimage(cellMap, cmin=0.0, cmax=1).save(os.path.splitext(image_out)[0] + 'Map.jpg')
             fileID = open(os.path.splitext(image_out)[0] + 'ROIs.txt', 'w')
             fileID.write(
-                "AIDAhisto: Atlas-based imaging data analysis tool for mouse brain intensity \n Intensity in %i given ROIs \n\n" % np.size(
+                "AIDAhisto: Atlas-based imaging data analysis tool for mouse brain intensity \nIntensity measured for %i given ROIs\n\n" % np.size(
                     roiNo))
+            fileID.write(
+                  "Intensity: sum of pixel values\nIntensity (normalised): normalised by total number of pixels in ROI (=region size)\n\n")
+            fileID.write(
+                "Region Atlas-Nr.\tIntensity\t\tIntensity (normalised)\n\n")
 
             if indices is None:
                 for i in range(np.size(cells)):
-                    fileID.write("%i\t%i\n" % (roiNo[i], cells[i]))
+                    fileID.write("%i\t\t\t%i\t\t\t%.2f\n" % (roiNo[i], cells[i], cells_norm[i]))
             else:
                 for i in range(np.size(cells)):
                     tempIdx = np.argwhere(indices == roiNo[i])
@@ -65,7 +71,7 @@ def get_roiEval(roiPath, peaks, image_out, txt_file):
                     str_idx = ref_lines[int(tempIdx[0])]
 
                     acro = str.split(str_idx, '\t')[1][:-1]
-                    fileID.write("%i\t%s\t%i\n" % (roiNo[i], acro, cells[i]))
+                    fileID.write("%i\t%s\t%i\t\t\t%.2f\n" % (roiNo[i], acro, cells[i], cells_norm[i]))
 
             print("Output:", fileID.name)
             fileID.close()
