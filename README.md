@@ -3,13 +3,8 @@
 <!--social icon from https://github.com/carlsednaoui/gitsocial -->
 
 <img align="left" src="https://github.com/maswendt/AIDAhisto/blob/master/logo.png"><h1>AIDA<i>histo</i></h1>
-
-Software to quantify cells in histological sections. Tested for different immunostainings: GFAP, Iba1, MAP2, DAPI. Download the custom Allen Mouse Brain Atlas files, the Allen Mouse Spinal Cord Atlas, and test images (including representative results) [here](https://doi.org/10.12751/g-node.25jp6z).
-<br/>
-<br/>
-<br/>
-[Manual v1.2](https://github.com/maswendt/AIDAhisto/AIDAhisto_Manual.pdf)
-<br/>
+Software to quantify cells in histological sections. Tested for different immunostainings: GFAP, Iba1, MAP2, DAPI. Download the custom Allen Mouse Brain Atlas files, the Allen Mouse Spinal Cord Atlas, and test images (including representative results) [here](https://doi.org/10.12751/g-node.25jp6z). [Manual v1.2](https://github.com/maswendt/AIDAhisto/AIDAhisto_Manual.pdf)
+<img align="center" src="https://github.com/maswendt/AIDAhisto/blob/master/AIDAhisto_Overview.png">
 [Information about Version 1.2](https://github.com/maswendt/AIDAhisto/releases/tag/v1.2)
 <br/>
 [Information about Version 1.1](https://github.com/maswendt/AIDAhisto/releases/tag/v1.1)
