@@ -10,6 +10,7 @@ Software to quantify cells in histological sections. Tested for different immuno
 <br/>
 [Manual v1.2](https://github.com/maswendt/AIDAhisto/AIDAhisto_Manual_v1.2.pdf)
 <br/>
+[Information about Version 1.2](https://github.com/maswendt/AIDAhisto/releases/tag/v1.2)
 <br/>
 [Information about Version 1.1](https://github.com/maswendt/AIDAhisto/releases/tag/v1.1)
 <br/>
