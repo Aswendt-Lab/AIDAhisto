@@ -331,10 +331,11 @@ def get_roiEval(roiPath,peaks,image_out,txt_file):
             else:
                 for i in range(np.size(cells)):
                     tempIdx=np.argwhere(indices == roiNo[i])
-                    if not tempIdx:
+                    
+                    if not tempIdx.any():   # this was replaced: old version: if not tempIdx
+                    
                         continue
                     str_idx = ref_lines[int(tempIdx[0])]
-
                     acro = str.split(str_idx, '\t')[1][:-1]
                     fileID.write("%i\t%s\t%i\n" % (roiNo[i], acro,cells[i]))
 

@@ -106,6 +106,7 @@ def main(path1, path2):
         try:
             percentageRegions = [round(100 / dict_dataB[key] * dict_dataM[key], 2) for key in dict_dataM]
             percentageOverall = [round(100 / areaBrain * dict_dataM[key], 2) for key in dict_dataM]
+            pixelRegions = [dict_dataM[key] for key in dict_dataM]
         except KeyError:
             print("Error: Color/Grey values of both images do not match. Please make sure the mask represents the affected regions with the same color values.")
             pass
@@ -115,10 +116,13 @@ def main(path1, path2):
         #for key, value in list(dict_dataM.items()):
         #    dict_dataM["Region Nr. " + str(key)] = dict_dataM.pop(key)
 
+        dict_pixRegions = dict(zip(dict_dataM.keys(), pixelRegions))
         dict_percRegions = dict(zip(dict_dataM.keys(), percentageRegions))
         dict_percOverall = dict(zip(dict_dataM.keys(), percentageOverall))
     
         # Convert to lists to sort descending regarding the %-values
+        list_pixRegions = list(dict_pixRegions.items())
+        list_pixRegions_Sorted = sorted(list_pixRegions, key=lambda x: x[1], reverse=True)
         list_percRegions = list(dict_percRegions.items())
         list_percRegions_Sorted = sorted(list_percRegions, key=lambda x: x[1], reverse=True)
         list_percOverall = list(dict_percOverall.items())
@@ -131,7 +135,9 @@ def main(path1, path2):
         # presentation, which we will decide to be empty
         numberOfRegions = len(list_percRegions_Sorted)
         rowsNames = numberOfRegions*['']
-    
+
+        print('Pixel per Brain Region:')
+        print(pandas.DataFrame(list_pixRegions_Sorted, rowsNames, ['Region Nr.', 'Pixel']))
         print('Mask Size per Brain Region:')
         print(pandas.DataFrame(list_percRegions_Sorted,rowsNames,['Region Nr.','%']))
         #print(list_percRegions_Sorted)

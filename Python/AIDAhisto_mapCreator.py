@@ -18,7 +18,7 @@ from scipy import misc
 
 def mapCreator(txtfile,atlasfile,norm):
     imgdata = nii.load(atlasfile)
-    img = imgdata.get_data()
+    img = imgdata.get_fdata()
     cellMap = np.zeros_like(img, dtype=float)
 
     f = open(txtfile, "r")

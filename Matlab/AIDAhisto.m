@@ -1,5 +1,5 @@
 function [fileStr,peaks,peaks_coord]=AIDAhisto(inputPath, width, varargin)
-%% AIDAhisto: Atlas-based imaging data analysis tool for mouse brain histology
+% AIDAhisto: Atlas-based imaging data analysis tool for mouse brain histology
 %
 % Syntax:  peaks = AIDAhisto(input_Image, width, 'CHANNEL', int ,...
 %                           'MIN_DIST', double, 'BAR_FILTER', boolean...
@@ -19,7 +19,7 @@ function [fileStr,peaks,peaks_coord]=AIDAhisto(inputPath, width, varargin)
 %   THRES_W    - weighting factor for isodata threshold - default 10
 %   RAD        - distance between cell nuclei and current cells - default 1.5   
 %   REF_PATH   - path to reference img with cell nuclei   
-%   NORM       - normlaize cell number by region size
+%   NORM       - set to 1 for normlaize cell number by region size
 %   ROI_NAMES  - path to text file with roi names with format %i\t%s\n   
 %
 % Outputs:
@@ -232,7 +232,7 @@ end
 
 %% process registered atlas given with ROI_PATH
 if exist(roiPath,'file')
-    mask = double(imread(roiPath));
+    mask = (double(imread(roiPath)));
     if size(peaks) ~= size(mask)
         disp('Dimension of input image and mask do not agree')
     else
@@ -249,7 +249,9 @@ if exist(roiPath,'file')
             end
         end
         % save txt
+        flag_roiNames = false;
         if exist(roiNames,'file')
+            flag_roiNames = true;
             fileID = fopen([fileStr 'ROIs.txt'],'w');
 
             roiNames = readROInames(roiNames);
@@ -257,6 +259,8 @@ if exist(roiPath,'file')
             fprintf(fileID, 'AIDAhisto: Atlas-based imaging data analysis tool for mouse brain histology \nNumber of identified Cells in %i given ROIs \n\n',length(roiNo));
             for i=1:length(cells)
                 tempName = roiNames(ismember(roirefNum,roiNo(i)),2);
+               % i
+                %tempName
                 fprintf(fileID,'%i\t%s\t%i\n',roiNo(i),tempName,cells(i));
             end
         else
@@ -271,7 +275,48 @@ if exist(roiPath,'file')
     end
     
 end
+if exist(refPath,'file')
+    mask = (double(imread(roiPath)));
+    if size(peaks) ~= size(mask)
+        disp('Dimension of input image and mask do not agree')
+    else
+        roiNo_v = unique(mask);
+        roiNo_v(roiNo_v==0)=[];
+        fprintf('Processing %i ROIs\n',length(roiNo_v))
+        cells = zeros(size(roiNo_v));
+        for i = 1:length(roiNo_v)
+            roi = roiNo_v(i);
+            if norm==1
+                 cells(i)=sum(peaks_verified(mask==roi))/sum(mask(mask==roi));
+            else
+                cells(i)=sum(peaks_verified(mask==roi));
+            end
+        end
+        % save txt
+        if flag_roiNames
+            fileID = fopen([fileStr 'ROIs_v.txt'],'w');
 
+            %roiNames = readROInames(roiNames);
+            roirefNum = double(roiNames(:,1));
+            fprintf(fileID, 'AIDAhisto: Atlas-based imaging data analysis tool for mouse brain histology \nNumber of identified Cells in %i given ROIs \n\n',length(roiNo));
+            for i=1:length(cells)
+                tempName = roiNames(ismember(roirefNum,roiNo_v(i)),2);
+               % i
+                %tempName
+                fprintf(fileID,'%i\t%s\t%i\n',roiNo_v(i),tempName,cells(i));
+            end
+        else
+            fileID = fopen([fileStr 'ROIs_v.txt'],'w');
+            fprintf(fileID, 'AIDAhisto: Atlas-based imaging data analysis tool for mouse brain histology \nNumber of identified Cells in %i given ROIs \n\n',length(roiNo));
+            for i=1:length(cells)
+                fprintf(fileID,'%i\t%i\n',roiNo_v(i),cells(i));
+            end
+        end
+        
+        fclose(fileID);
+    end
+    
+end
 toc;
 fprintf('\n')
 end
@@ -319,4 +364,3 @@ for rstart = 1:R
 end
 
 end
-
