@@ -16,13 +16,15 @@ Software to quantify cells in histological sections. Tested for different immuno
 <br/>
 [Information about Version 1.0](https://github.com/maswendt/AIDAhisto/releases/tag/v1.0)
 
+When applying or modifying AIDAhisto, please always cite the original reference: [Pallast, N., et al. "Atlas-based imaging data analysis tool for quantitative mouse brain histology (AIDAhisto)" Journal of Neuroscience Methods, 2019](https://www.sciencedirect.com/science/article/pii/S0165027019302511?via%3Dihub)
+
 [<h3><b>CONTACT</h3></b>](https://neurologie.uk-koeln.de/forschung/ag-neuroimaging-neuroengineering/)
 Markus Aswendt (markus.aswendt@uk-koeln.de)[![alt text][1.2]][1]
 
 Need help? Chat with us and find answers to FAQs in the AIDA_Tools Gitter rooms: [![Gitter](https://badges.gitter.im/AIDA_tools/community.svg)](https://gitter.im/AIDA_tools/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 ___
 LICENSE
-GNU General Public License v3.0
+CC BY-NC-SA 4.0
 <details>
 <summary>REFERENCES</summary></b>
 
