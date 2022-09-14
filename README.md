@@ -4,11 +4,11 @@
 
 <img align="left" src="https://github.com/maswendt/AIDAhisto/blob/master/logo.png"><h1>AIDA<i>histo</i></h1>
 
-Software to quantify cells in histological sections evaluated on different stainings (GFAP, Iba1, MAP2, DAPI). You may additionally download the folder <i>testImages</i> to test the scripts and functions with example images.
+Software to quantify cells in histological sections. Tested for different immunostainings: GFAP, Iba1, MAP2, DAPI. Download the custom Allen Mouse Brain Atlas files, the Allen Mouse Spinal Cord Atlas, and test images (including representative results) here.
 <br/>
 <br/>
 <br/>
-[Manual v1.1](https://github.com/maswendt/AIDAhisto/blob/master/manual.pdf)
+[Manual v1.2](https://github.com/maswendt/AIDAhisto/AIDAhisto_Manual_v1.2.pdf)
 <br/>
 <br/>
 [Information about Version 1.1](https://github.com/maswendt/AIDAhisto/releases/tag/v1.1)
@@ -16,7 +16,6 @@ Software to quantify cells in histological sections evaluated on different stain
 [Information about Version 1.0](https://github.com/maswendt/AIDAhisto/releases/tag/v1.0)
 
 [<h3><b>CONTACT</h3></b>](https://neurologie.uk-koeln.de/forschung/ag-neuroimaging-neuroengineering/)
-Niklas Pallast (niklas.pallast@uk-koeln.de) and 
 Markus Aswendt (markus.aswendt@uk-koeln.de)[![alt text][1.2]][1]
 
 Need help? Chat with us and find answers to FAQs in the AIDA_Tools Gitter rooms: [![Gitter](https://badges.gitter.im/AIDA_tools/community.svg)](https://gitter.im/AIDA_tools/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
