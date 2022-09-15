@@ -2,17 +2,26 @@
 [1]: http://www.twitter.com/AswendtMarkus
 <!--social icon from https://github.com/carlsednaoui/gitsocial -->
 
-<img align="left" src="https://github.com/maswendt/AIDAhisto/blob/master/logo.png"><h1>AIDA<i>histo</i></h1>
-Software to quantify cells in histological sections. Tested for different immunostainings: GFAP, Iba1, MAP2, DAPI. Download the modified [Allen Mouse Brain Atlas](https://mouse.brain-map.org/static/atlas), the [Allen Mouse Spinal Cord Atlas](https://mousespinal.brain-map.org), and test images (including representative results) [here](https://doi.org/10.12751/g-node.25jp6z). See the [Manual v1.2](https://github.com/maswendt/AIDAhisto/AIDAhisto_Manual.pdf) for instructions on how to install and a step-by-step guide.
+<img align="left" src="https://github.com/maswendt/AIDAhisto/blob/master/logo.png"><h1>AIDA<i>histo</i></h1>***Atlas-based imaging data analysis tool for quantitative mouse brain histology***\
+Software to automatically detect cells in histological mouse brain and spinal cord sections. Tested for different immunostainings (e.g., GFAP, Iba1, and MAP2) and histological stainings (e.g., Nissl). The Allen Mouse Brain/Spinal Cord Atlas is used to register the microscopy files. Cell counting results are reported as cells per brain region.\
 <img align="center" src="https://github.com/maswendt/AIDAhisto/blob/master/AIDAhisto_Overview.png">
-Information about [Version 1.2](https://github.com/maswendt/AIDAhisto/releases/tag/v1.2) / [Version 1.1](https://github.com/maswendt/AIDAhisto/releases/tag/v1.1) / [Version 1.0](https://github.com/maswendt/AIDAhisto/releases/tag/v1.0)
+Information about [Version 1.2](https://github.com/maswendt/AIDAhisto/releases/tag/v1.2) / [Version 1.1](https://github.com/maswendt/AIDAhisto/releases/tag/v1.1) / [Version 1.0](https://github.com/maswendt/AIDAhisto/releases/tag/v1.0)</b>
 
+<h3><b>FEATURES</h3></b>
+- Includes a custom version of the Allen Mouse Brain/Spinal Cord Atlas with a list of annotations
+- Instruction on how to register the atlas with microscopy files using ImageJ
+- Automated cell counting: works for immunostainings and histological stainings; the cell nuclei position (e.g. based on a DAPI staining) can be used to improve the cell counting (only cells with a cell nuclei will be counted)
+
+<h3><b>GET STARTED</h3></b>
+Download the modified [Allen Mouse Brain Atlas](https://mouse.brain-map.org/static/atlas), the [Allen Mouse Spinal Cord Atlas](https://mousespinal.brain-map.org), and the test images (including representative results) [here](https://doi.org/10.12751/g-node.25jp6z). See the [Manual v1.2](https://github.com/maswendt/AIDAhisto/AIDAhisto_Manual.pdf) for instructions on how to install and a step-by-step guide.
+
+<h3><b>CITATION</h3></b>
 When applying or modifying AIDAhisto, please always cite the original reference: [Pallast, N., et al. "Atlas-based imaging data analysis tool for quantitative mouse brain histology (AIDAhisto)" Journal of Neuroscience Methods, 2019](https://www.sciencedirect.com/science/article/pii/S0165027019302511?via%3Dihub)
 
-[<h3><b>CONTACT</h3></b>](https://neurologie.uk-koeln.de/forschung/ag-neuroimaging-neuroengineering/)
+<h3><b>CONTACT</h3></b>
 Markus Aswendt (markus.aswendt@uk-koeln.de)[![alt text][1.2]][1]
 
-Need help? Chat with us and find answers to FAQs in the AIDA_Tools Gitter rooms: [![Gitter](https://badges.gitter.im/AIDA_tools/community.svg)](https://gitter.im/AIDA_tools/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+Need help? Chat with us and find FAQs in the AIDA_Tools Gitter room: [![Gitter](https://badges.gitter.im/AIDA_tools/community.svg)](https://gitter.im/AIDA_tools/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 ___
 LICENSE
 CC BY-NC-SA 4.0
