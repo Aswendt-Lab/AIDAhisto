@@ -10,7 +10,8 @@ Information about [Version 1.2](https://github.com/maswendt/AIDAhisto/releases/t
 <h3><b>FEATURES</h3></b>
 - Includes a custom version of the Allen Mouse Brain/Spinal Cord Atlas with a list of annotations
 - Instruction on how to register the atlas with microscopy files using ImageJ
-- Automated cell counting: works for immunostainings and histological stainings; the cell nuclei position (e.g. based on a DAPI staining) can be used to improve the cell counting (only cells with a cell nuclei will be counted)
+- Automated cell counting implemented in Matlab (preferred) and Python
+- Cell counting works for immunostainings and histological stainings; the cell nuclei position (e.g. based on a DAPI staining) can be used to improve the cell counting (only cells with a cell nuclei will be counted)
 
 <h3><b>GET STARTED</h3></b>
 Download the modified [Allen Mouse Brain Atlas](https://mouse.brain-map.org/static/atlas), the [Allen Mouse Spinal Cord Atlas](https://mousespinal.brain-map.org), and the test images (including representative results) [here](https://doi.org/10.12751/g-node.25jp6z). See the [Manual v1.2](https://github.com/maswendt/AIDAhisto/AIDAhisto_Manual.pdf) for instructions on how to install and a step-by-step guide.
