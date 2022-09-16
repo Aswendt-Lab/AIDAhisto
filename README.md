@@ -2,7 +2,7 @@
 [1]: http://www.twitter.com/AswendtMarkus
 <!--social icon from https://github.com/carlsednaoui/gitsocial -->
 <img align="right" src="https://github.com/maswendt/AIDAhisto/blob/master/logo.png"><h1>AIDA<i>histo</i></h1>***Atlas-based imaging data analysis tool for quantitative mouse brain histology***
-<p align="justify"> Software to automatically <b>detect cells</b> in histological <b>mouse brain and spinal cord</b> sections. Tested for different immunostainings (e.g., GFAP, Iba1, and MAP2) and histological stainings (e.g., Nissl). The Allen Mouse Brain/Spinal Cord Atlas is used to register the microscopy files. Cell counting results are reported as cells per brain region.</p>
+<p align="justify"> Software to automatically <b>detect cells</b> in histological <b>mouse brain</b> and <b>spinal cord</b> sections. Tested for different immunostainings (e.g., GFAP, Iba1, and MAP2) and histological stainings (e.g., Nissl). The Allen Mouse Brain/Spinal Cord Atlas is used to register the microscopy files. Cell counting results are reported as cells per brain region.</p>
 <img align="center" src="https://github.com/maswendt/AIDAhisto/blob/master/AIDAhisto_Overview.png">
 
 Information about [Version 1.2](https://github.com/maswendt/AIDAhisto/releases/tag/v1.2) / [Version 1.1](https://github.com/maswendt/AIDAhisto/releases/tag/v1.1) / [Version 1.0](https://github.com/maswendt/AIDAhisto/releases/tag/v1.0)</b>
@@ -19,7 +19,7 @@ Information about [Version 1.2](https://github.com/maswendt/AIDAhisto/releases/t
 
 <h3><b>GET STARTED</h3></b>
 
-Download the modified atlas files and the test images (including representative results) [here](https://doi.org/10.12751/g-node.25jp6z). See the [Manual v1.2](https://github.com/maswendt/AIDAhisto/AIDAhisto_Manual.pdf) for instructions on how to install and a step-by-step guide.
+Download the modified atlas files and the test images (including representative results) [here](https://doi.org/10.12751/g-node.25jp6z). For details on installation and use, see the step-by-step in the [Manual v1.2](https://github.com/maswendt/AIDAhisto/AIDAhisto_Manual.pdf) 
 
 
 <h3><b>CITATION</h3></b>
