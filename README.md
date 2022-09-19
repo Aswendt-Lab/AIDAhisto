@@ -3,9 +3,12 @@
 <!--social icon from https://github.com/carlsednaoui/gitsocial -->
 <img align="right" src="https://github.com/maswendt/AIDAhisto/blob/master/logo.png"><h1>AIDA<i>histo</i></h1>***Atlas-based imaging data analysis tool for quantitative mouse brain histology***
 <p align="justify"> Software to automatically <b>detect cells</b> in histological <b>mouse brain</b> and <b>spinal cord</b> sections. Tested for different immunostainings (e.g., GFAP, Iba1, and MAP2) and histological stainings (e.g., Nissl). The Allen Mouse Brain/Spinal Cord Atlas is used to register the microscopy files. Cell counting results are reported as cells per brain region.</p>
-<img align="center" src="https://github.com/maswendt/AIDAhisto/blob/master/AIDAhisto_Overview.png">
 
-Information about [Version 1.2](https://github.com/maswendt/AIDAhisto/releases/tag/v1.2) / [Version 1.1](https://github.com/maswendt/AIDAhisto/releases/tag/v1.1) / [Version 1.0](https://github.com/maswendt/AIDAhisto/releases/tag/v1.0)</b>
+Information about [Version 1.2 (current)](https://github.com/maswendt/AIDAhisto/releases/tag/v1.2) / [Version 1.1](https://github.com/maswendt/AIDAhisto/releases/tag/v1.1) / [Version 1.0](https://github.com/maswendt/AIDAhisto/releases/tag/v1.0)</b>
+
+<h2><b>EXAMPLES</h2></b>
+<img align="center" src="https://github.com/maswendt/AIDAhisto/blob/master/AIDAhisto_Overview.png">
+<img align="center" src="https://github.com/maswendt/AIDAhisto/blob/master/AIDAhisto_Overview_SC.png">
 
 <h3><b>FEATURES</h3></b>
 
