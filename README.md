@@ -22,7 +22,7 @@ Information about [Version 1.2 (current)](https://github.com/maswendt/AIDAhisto/
 
 <h3><b>GET STARTED</h3></b>
 
-Download the modified atlas files and the test images (including representative results) [here](https://doi.org/10.12751/g-node.25jp6z). For details on installation and use, see the step-by-step guide in the [Manual v1.2](https://github.com/maswendt/AIDAhisto/AIDAhisto_Manual.pdf) 
+Download the modified atlas files and the test images (including representative results) [here](https://doi.org/10.12751/g-node.25jp6z). For details on installation and use, see the step-by-step guide in the [Manual v1.2](https://github.com/aswendtlab/AIDAhisto/blob/master/AIDAhisto_v1_2.pdf) 
 
 
 <h3><b>CITATION</h3></b>
