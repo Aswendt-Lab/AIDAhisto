@@ -29,11 +29,15 @@ Download the modified atlas files and the test images (including representative 
 
 When applying or modifying AIDAhisto, please always cite the original reference: [Pallast, N., et al. "Atlas-based imaging data analysis tool for quantitative mouse brain histology (AIDAhisto)" Journal of Neuroscience Methods, 2019](https://www.sciencedirect.com/science/article/pii/S0165027019302511?via%3Dihub)
 
-<h3><b>CONTACT</h3></b>
+[<h3><b>CONTACT</h3></b>](https://neurologie.uk-koeln.de/forschung/ag-neuroimaging-neuroengineering/)
+Chat with us [![Gitter](https://badges.gitter.im/AIDA_tools/community.svg)](https://gitter.im/AIDA_tools/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) 
+
+or 
+
+join our Open Office Hour - each Thursday 4:30 pm (UTC+2) [![Zoom](https://img.shields.io/badge/Zoom-2D8CFF?style=for-the-badge&logo=zoom&logoColor)](https://uni-koeln.zoom.us/meeting/register/tJYsceyorDoqGdX4H8Z7c86_qxoaq6yOdFGM)
 
 Markus Aswendt (markus.aswendt@uk-koeln.de)[![alt text][1.2]][1]
 
-Need help? Chat with us and find FAQs in the AIDA_Tools Gitter room: [![Gitter](https://badges.gitter.im/AIDA_tools/community.svg)](https://gitter.im/AIDA_tools/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 ___
 LICENSE
 CC BY-NC-SA 4.0
