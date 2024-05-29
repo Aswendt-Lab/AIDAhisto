@@ -1,3 +1,5 @@
+![Static Badge](https://img.shields.io/badge/MATLAB-R2018b_or_higher-orange)
+
 [1.2]: http://i.imgur.com/wWzX9uB.png
 [1]: http://www.twitter.com/AswendtMarkus
 <!--social icon from https://github.com/carlsednaoui/gitsocial -->
